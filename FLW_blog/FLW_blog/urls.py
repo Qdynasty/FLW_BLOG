@@ -19,5 +19,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     #"""应用"""
-    url(r'^$', include("blog.urls"))
+    url(r'^blog', include("blog.urls"))
 ]

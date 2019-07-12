@@ -4,5 +4,5 @@ from blog.views import index
 
 urlpatterns = [
     #"""应用"""
-    url(r'^$',index)
+    url(r'^/$', index)
 ]

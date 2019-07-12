@@ -5,7 +5,7 @@ from django.db import models
 class UserInfo(models.Model):
     """用户表"""
     id = models.AutoField(primary_key=True, verbose_name="主键")
-    uname = models.CharField(max_length=20,verbose_name="用户昵称")
+    uname = models.CharField(max_length=20, verbose_name="用户昵称")
 
     class Meta:
         db_table = "user_info"
@@ -26,6 +26,7 @@ class DocInfo(models.Model):
     dname = models.CharField(max_length=20, verbose_name="文档名称")
     is_delete = models.BooleanField(default=False, verbose_name='逻辑删除')
     description = models.CharField(max_length=200, null=True, verbose_name='描述信息')
+    url_path = models.CharField(max_length=60,verbose_name="文档存放路径")
     """
     用户 文档  一对多
     """
@@ -34,9 +35,6 @@ class DocInfo(models.Model):
                                 related_name="docs",
                                 verbose_name="文档外键"
                                 )
-    """
-    技术文档类型 文档  多对多
-    """
     class Meta:
         db_table = 'doc_info'
         verbose_name = '文档信息'
